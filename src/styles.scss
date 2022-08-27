@@ -1,0 +1,38 @@
+/* You can add global styles to this file, and also import other style files */
+/* You can add global styles to this file, and also import other style files */
+@font-face{
+    font-family: 'Exo';
+    font-display: swap;
+    src: url('./assets/fonts/exo/Exo2-VariableFont_wght.ttf') format("truetype");
+}
+
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Exo';
+    -moz-box-sizing: border-box;
+}
+
+html,body{
+    background-color: #00010a;
+}
+
+input,
+a,
+button,
+div{
+    -webkit-tap-highlight-color: transparent;
+}
+
+button{
+    cursor: pointer;
+    border: none;
+    border-radius: 5px;
+}
+
+//Removing background hightlight when autofill on google browser
+input:-webkit-autofill,
+input:-webkit-autofill:focus {
+    transition: background-color 600000s 0s, color 600000s 0s;
+}
