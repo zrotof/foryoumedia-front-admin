@@ -1,0 +1,18 @@
+<div class="dates">
+    <h2>PROGRAMMATION DES ÉMISSIONS TV</h2>
+    <ul class="years">
+        <li *ngFor="let year of years" class="year" (click)="onChooseYear(year)"> {{year}} </li>
+    </ul>
+    <div class="months-calendar" *ngIf="showMonths">
+        <ul class="months">
+            <li *ngFor="let month of months" class="month" (click)="onChooseMonth(month.value)">{{month.name}}</li>
+        </ul>
+        <div class="calendar">
+            <div class="days">
+                <div *ngFor="let day of fakeArray; let index = index" class="day" (click)="onChooseDay(index+1)">
+                    {{index+1}}
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

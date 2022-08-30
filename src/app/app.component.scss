@@ -1,0 +1,19 @@
+.app{
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+
+    app-header{
+        width: 100%;
+    }
+
+    .content{
+        display: flex;
+        margin-top: 5.5em;
+
+        .wrapper{
+            width: 100%;
+            margin: 3em;
+        }
+    }
+}

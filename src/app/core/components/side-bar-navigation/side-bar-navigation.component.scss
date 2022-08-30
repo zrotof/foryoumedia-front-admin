@@ -1,0 +1,57 @@
+.sidebar{
+    display: flex;
+    flex-direction: column;
+    width: 20em;
+    min-height: 100vh;
+    box-shadow: 0 0.5rem 1rem 0 rgb(44 51 73 / 10%);
+    background-color: #fff;
+    padding: 0 2em;
+    color: #222b45;
+
+    .space{
+        padding: 1.5em 0;
+        border-bottom: 1px solid #e4e1e1;
+        width: 100%;
+    }
+
+    .programs,
+    .shows,
+    .no-rubric{
+        display: flex;
+        flex-direction: column;
+        width: 100%;
+
+        span{
+            font-size: 1.5em;
+            font-weight: bold;
+            margin-bottom: 1em;
+        }
+
+        a{
+            margin-left: 1.5em;
+            font-weight: 100;
+            margin-bottom: 5px;
+            color: #7a7a7a;
+            white-space: nowrap;
+            cursor: pointer;
+
+        }
+
+        .active-navigation{
+            position: relative;
+            color: #025115;
+            font-weight: bolder;
+
+            &::after{
+            content: "";
+            width: 5px;
+            height: 100%;
+            background-color: #0b8329;
+            border-radius: 100px;
+            position: absolute;
+            left: -10px;
+        }
+
+        }
+    }
+}
