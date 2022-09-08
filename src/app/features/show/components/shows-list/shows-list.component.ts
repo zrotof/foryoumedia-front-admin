@@ -22,18 +22,20 @@ export class ShowsListComponent implements OnInit {
   ) { }
 
   ngOnInit(): void {
+
+    this.getShowsList();
   }
 
 
-  getShowsList(){
-
+  getShowsList(){  
+    
     this.showService.getShowsList()
     .subscribe(
       (result : any)=>{
 
         if(result.success){
-          
-        this.showsList = result.message;}
+          this.showsList = result.message;
+        }
       }
     
     )
@@ -46,7 +48,7 @@ export class ShowsListComponent implements OnInit {
       (result : any) => {
 
         if(result.success){
-          this.router.navigateByUrl(`categories/modifier-catégorie/${showId}`)
+          this.router.navigateByUrl(`types-émissions/modifier/${showId}`)
 
         }
 
@@ -60,6 +62,8 @@ export class ShowsListComponent implements OnInit {
     )
   }
 
+
+  
   deleteShow(showId : string){
       this.confirmationService.confirm({
           message: 'Voulez-vous vraiment supprimer cette catégories?',
@@ -93,4 +97,5 @@ export class ShowsListComponent implements OnInit {
             }
       }
       )}
+
 }

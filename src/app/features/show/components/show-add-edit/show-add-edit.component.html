@@ -1,1 +1,66 @@
-<p>show-add-edit works!</p>
+<div class="add-show">
+    <div *ngIf="!isEditMode">
+        
+        <h1 >Créer Un Type d'Émission</h1>
+        <h3>Création d'un nouveau type d'émission </h3>
+
+        <div class="buttons">
+            <button class="add" type="submit" (click)="onSaveShow()"> 
+                <i class="pi pi-plus"></i>
+                Ajouter
+            </button>
+            <button class="cancel" type="button" (click)="onCancelAddEditShow()"> 
+                <i class="pi pi-times"></i>
+                Annuler
+            </button>
+        </div>
+    </div>
+
+    <div *ngIf="isEditMode">
+        <h1 >Modifier Type d'Émission</h1>
+        <h3>Modification </h3>
+
+        <div class="buttons">
+            <button class="add" type="submit" (click)="onEditShow()"> 
+                <i class="pi pi-pencil"></i>
+                Modifier
+            </button>
+            <button class="cancel" type="button" (click)="onCancelAddEditShow()"> 
+                <i class="pi pi-times"></i>
+                Annuler
+            </button>
+        </div>
+    </div>
+    
+    
+
+    <form [formGroup]="showForm" >
+
+        <div class="image-block">
+            <div class="upload">    
+                <div class="input">
+                    <label for="image-input">
+                        <i class="pi pi-upload"></i>
+                        Charger image
+                    </label>
+                    <input type="file" id="image-input" accept="image/*" (change)="showImagePreview($event)">    
+                </div>
+                <small *ngIf="(formControls['image'].invalid && (isSaveButtonClicked || isEditButtonClicked)) && !isEditMode" class="p-error">Image manquante</small>
+            </div>
+            <img class="preview" [src]="imageDisplay" id="image-previewed">
+        </div>
+
+        <div class="name">
+            <label for="name" class="block">Nom</label>
+            <input id="name" formControlName="name" type="text" pInputText />
+            <small *ngIf="formControls['name'].invalid && ( isSaveButtonClicked || isEditButtonClicked)" class="p-error">Nom manquant</small>
+        </div>
+            
+        <div class="description">
+            <label for="description" class="block">Description</label>
+            <textarea id="description" rows="5" cols="30" pInputTextarea formControlName="description"></textarea>            <small *ngIf="formControls['description'].invalid && ( isSaveButtonClicked || isEditButtonClicked)" class="p-error">description manquante</small>
+        </div>
+    </form>   
+    <p-toast position="top-right"></p-toast> 
+
+</div>

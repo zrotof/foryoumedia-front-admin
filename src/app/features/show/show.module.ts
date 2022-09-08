@@ -4,7 +4,8 @@ import { PrimengModule } from 'src/app/shared/modules/primeng.module';
 
 import { ShowsListComponent } from './components/shows-list/shows-list.component';
 import { ShowAddEditComponent } from './components/show-add-edit/show-add-edit.component';
-
+import { ShowRoutingModule } from './show-routing.module';
+import { ReactiveFormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -13,10 +14,13 @@ import { ShowAddEditComponent } from './components/show-add-edit/show-add-edit.c
   ],
   imports: [
     CommonModule,
-    PrimengModule
+    PrimengModule,
+    ShowRoutingModule,
+    ReactiveFormsModule
   ],
   exports: [
-    
+    ShowsListComponent,
+    ShowAddEditComponent
   ]
 })
 export class ShowModule { }

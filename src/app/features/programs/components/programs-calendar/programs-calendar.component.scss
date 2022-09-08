@@ -1,0 +1,163 @@
+.dates{
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+
+    .actions{
+        padding: 5px 10px;
+        background-color: rgb(241, 241, 241);
+        margin: 60px 0 30px 0;
+
+        
+        .add-show{
+            display: flex;
+            align-items: center;
+            outline: none;
+            border: solid green;
+            padding: 6px 10px;
+            border-radius: 100px;
+            color: green;
+            width: fit-content;
+            cursor: pointer;
+            background-color: white;
+
+            i{
+                margin-right: 5px;
+            }
+        
+            & :hover{
+            background-color: green;
+            color: white;
+            }
+        }
+    }
+
+    .programs{
+        display: flex;
+        align-items: flex-start;
+
+        .years{
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            list-style: none;
+            margin-right: 15px;
+    
+            .year{
+                display: flex;
+                justify-content: center;
+                padding: 10px 15px;
+                background-color: #e0e0e0;
+                width: 67px;
+                cursor: pointer;
+                margin-bottom: 5px;
+                color: #5e5e5e;
+            }
+
+            .active-year{
+                color: #16620c;
+                border-width: 4px;
+                border-style: solid;
+                border-image: linear-gradient(20deg, rgba(5,158,5,1) 0%, rgba(207,0,0,1) 100%) 1;
+            }
+        }
+    
+            
+        .months{
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            list-style: none;
+            background-color: #131313;
+            color: #5a686e;
+            width: 112px;
+    
+            .month{
+                cursor: pointer;
+                width: 100%;
+                height: 35px;
+                padding-left: 12px;
+                display: flex;
+                align-items: center;
+                transition: all 0.2s ease-in;
+
+                &:hover{
+                    background-color: white;
+                    color: black;
+                }
+            }
+
+            .active-month{
+                background-color: white;
+                color: black;
+                border: 1px solid black;
+            }
+        }
+
+        .calendar{
+            display: flex;
+            flex-direction: column;
+            padding: 30px 20px;
+            margin-left: 2em;
+            background-color: white;
+            width: 642px;
+
+            .days-headers{
+                display: flex;
+                width: fit-content;
+
+                .day-header{
+                    display: flex;
+                    justify-content: center;
+                    width: 80px;
+                    margin: 3px;
+                    color: black;
+                    font-weight: bold;
+                }
+            }
+
+            .days-values{
+                display: flex;
+                width: fit-content;
+                flex-wrap: wrap;
+                margin-top: 7px;
+
+                .day-value{
+                    width: 80px;
+                    height: 80px;
+                    margin: 3px;
+                    display: flex;
+                    justify-content: center;
+                    align-items: center;
+
+                    div {
+                        width: 100%;
+                        height: 100%;
+
+                         .day{
+                            display: flex;
+                            justify-content: center;
+                            align-items: center;
+                            cursor: pointer;
+                            background-color: #eeeeee;
+                            color: #192e27;
+                            width: 100%;
+                            height: 100%;
+
+                            &:hover{
+                                background-color: #dadadb;
+                            }
+                        }   
+
+                        .day-validated{
+                            background-color: green;
+                        }
+                    }
+
+                    
+                }
+            }
+            
+        }
+    }
+}

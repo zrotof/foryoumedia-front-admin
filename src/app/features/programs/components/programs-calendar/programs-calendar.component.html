@@ -1,0 +1,50 @@
+<div class="dates">
+    <h1>ÉMISSIONS TV</h1>
+    <h3>Plannification des les émissions</h3>
+
+    <div class="actions">
+        <button class="add-show" type="button" routerLink= '/types-émissions/créer'> 
+            <i class="pi pi-plus"></i>
+            Ajouter année
+        </button>
+    </div>
+
+    <div class="programs">
+
+        <ul class="years">
+            <li *ngFor="let year of years; let index = index" class="year" (click)="onChooseYear(year, index)"> {{year}} </li>
+        </ul>
+
+        <ul class="months" *ngIf="showMonths">
+            <li *ngFor="let month of months; let index = index" class="month" [ngClass]="month.active ? 'active-month' : ''" (click)="onChooseMonth(month.value, index)">{{month.name}}</li>
+        </ul>
+
+        <div class="calendar" *ngIf="showCalendar">
+
+            <ul class="days-headers">
+                <li *ngFor="let day of daysOfWeekString" class="day-header">
+                    {{day | titlecase}}
+                </li>
+            </ul>
+
+            <div class="days-values">
+                <div *ngFor="let day of calendarDataArray; let index = index" class="day-value">
+                    <div *ngIf="day?.value ;else empty">
+                        <span 
+                            class="day" 
+                            [ngClass]="day.status == 'validate' ? 'day-validated':''"
+                            (click)="onChooseDay(day.value)"
+                        >
+                                {{ day.value}}
+                        </span>
+                    </div>
+                    <ng-template #empty>
+                        <span></span>
+                    </ng-template>
+                </div>
+            </div>
+
+        </div>
+    </div>
+    
+</div>

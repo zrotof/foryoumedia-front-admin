@@ -1,0 +1,53 @@
+<div class="add-program">
+    <div *ngIf="!isEditMode">
+        
+        <h1 >Programmer Une Émission</h1>
+        <h3>{{currentDate}}</h3>
+
+        <div class="buttons">
+            <button class="add" type="submit" (click)="onSaveProgram()"> 
+                <i class="pi pi-plus"></i>
+                Ajouter
+            </button>
+            <button class="cancel" type="button" (click)="onCancelAddEditProgram()"> 
+                <i class="pi pi-times"></i>
+                Annuler
+            </button>
+        </div>
+    </div>
+
+    <div *ngIf="isEditMode">
+        <h1 >Modifier Type d'Émission</h1>
+        <h3>Modification </h3>
+
+        <div class="buttons">
+            <button class="add" type="submit" (click)="onEditProgram()"> 
+                <i class="pi pi-pencil"></i>
+                Modifier
+            </button>
+            <button class="cancel" type="button" (click)="onCancelAddEditProgram()"> 
+                <i class="pi pi-times"></i>
+                Annuler
+            </button>
+        </div>
+    </div>
+    
+    
+
+    <form [formGroup]="programForm"  >
+
+
+        <div class="name">
+            <label for="name" class="block">Nom</label>
+            <input id="name" formControlName="name" type="text" pInputText />
+            <small *ngIf="formControls['name'].invalid && ( isSaveButtonClicked || isEditButtonClicked)" class="p-error">Nom manquant</small>
+        </div>
+            
+        <div class="purpose">
+            <label for="purpose" class="block">Description</label>
+            <textarea id="purpose" rows="5" cols="30" pInputTextarea formControlName="purpose"></textarea>            
+        </div>
+    </form>   
+    <p-toast position="top-right"></p-toast> 
+
+</div>

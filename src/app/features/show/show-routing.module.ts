@@ -5,9 +5,8 @@ import { ShowsListComponent } from './components/shows-list/shows-list.component
 
 const routes: Routes = [
   {path:'', component: ShowsListComponent},
-  {path:'ajouter', component: ShowAddEditComponent},
-  {path:'modifier/:id', component: ShowAddEditComponent},
-
+  {path:'créer', component: ShowAddEditComponent},
+  {path:'modifier/:id', component: ShowAddEditComponent}
 ];
 
 @NgModule({
@@ -15,4 +14,4 @@ const routes: Routes = [
   exports: [RouterModule]
 })
 
-export class CoreRoutingModule { }
+export class ShowRoutingModule { }

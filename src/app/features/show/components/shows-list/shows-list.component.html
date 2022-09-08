@@ -1,11 +1,11 @@
-<div class="admin-list-categories">
-    <h1>ÉMISSIONS</h1>
-    <h3>Liste de tous types d'émissions </h3>
+<div class="list-shows">
+    <h1>TYPES D'ÉMISSIONS</h1>
+    <h3>Liste de tous les types d'émissions </h3>
 
-        <div class="buttons">
-            <button class="add-category" type="button" routerLink= '/categories/créer-catégorie'> 
+        <div class="actions">
+            <button class="add-show" type="button" routerLink= '/types-émissions/créer'> 
                 <i class="pi pi-plus"></i>
-                Créer Catégorie
+                Créer Type d'Émission
             </button>
         </div>
 
@@ -13,18 +13,24 @@
             
             <ng-template pTemplate="header">
                 <tr>
-                    <th pSortableColumn="name">Name <p-sortIcon field="name"></p-sortIcon></th>
+                    <th class="count"></th>
+                    <th pSortableColumn="name">Nom <p-sortIcon field="name"></p-sortIcon></th>
                     <th>Image</th>
+                    <th>Description</th>
                     <th></th>
                 </tr>
             </ng-template>
-            <ng-template pTemplate="body" let-category>
+            <ng-template pTemplate="body" let-show let-rowIndex="rowIndex">
                 <tr>
-                    <td>{{category.name }}</td>
-                    <td><img [src]="category.image" [alt]="category.name" width="100" class="p-shadow-4" /></td>
+                    <td class="count">{{rowIndex + 1}}</td>
+                    <td>{{show.name }}</td>
+                    <td><img [src]="show.image" [alt]="show.name" width="100" class="p-shadow-4" /></td>
+                    <td>{{show.description}}</td>
                     <td class="delete-edit">
-                        <i (click)="editShow(category._id)" class="pi pi-pencil"></i>
-                        <i (click)="deleteShow(category._id)"class="pi pi-trash"></i>
+                    
+                        <i (click)="editShow(show.id)" class="pi pi-pencil"></i>
+                        <i (click)="deleteShow(show.id)"class="pi pi-trash"></i>
+                    
                     </td>
                  </tr>
             </ng-template>
@@ -33,5 +39,4 @@
         <p-confirmDialog header="Confirmation de suppression" acceptLabel="Oui" rejectLabel="Non" [breakpoints]="{'960px': '75vw', '640px': '100vw'}" [style]="{width: '50vw'}">
         </p-confirmDialog>
         <p-toast position="top-right"></p-toast> 
-
 </div>
